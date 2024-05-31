@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.active {
+  color: green;
+  text-decoration: underline;
+}
+
+.nav {
+  margin-top: 20px;
+  border-bottom: 2px solid black;
+}

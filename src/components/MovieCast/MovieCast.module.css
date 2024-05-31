@@ -1,0 +1,14 @@
+.cast {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
+  width: 300px;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.castList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
