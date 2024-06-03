@@ -2,14 +2,16 @@ import { getSearchMovies } from "../../movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 //import css from "./MoviesPage.module.css";
 export default function MoviesPage() {
-  const [queryMovie, setQueryMovie] = useState("");
   const [dataMovies, setDataMovies] = useState([]);
   const [isLoader, setIsLoader] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [searchParam, setSearchParam] = useSearchParams();
+  const queryMovie = searchParam.get("query") ?? "";
 
   useEffect(() => {
     async function fetchMovies() {
@@ -20,6 +22,7 @@ export default function MoviesPage() {
         setIsLoader(true);
         setIsError(false);
         const data = await getSearchMovies(queryMovie);
+        console.log(data);
         setDataMovies(data);
       } catch (error) {
         console.log(error);
@@ -32,7 +35,8 @@ export default function MoviesPage() {
   }, [queryMovie]);
 
   const handleSearch = async (query) => {
-    setQueryMovie(query);
+    searchParam.set("query", query);
+    setSearchParam(searchParam);
     setDataMovies([]);
   };
 
