@@ -12,3 +12,8 @@
   flex-direction: column;
   gap: 5px;
 }
+
+.castImage {
+  height: 300px;
+  width: 200px;
+}

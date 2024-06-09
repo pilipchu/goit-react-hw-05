@@ -23,7 +23,11 @@ export default function MovieCast() {
         movieCasts.map((cast) => (
           <li key={cast.id} className={css.cast}>
             <img
-              src={`https://image.tmdb.org/t/p/w200${cast.profile_path}`}
+              className={css.castImage}
+              src={
+                (!cast.profile_path && "../../../imges/user.jpg") ||
+                `https://image.tmdb.org/t/p/w200${cast.profile_path}`
+              }
               alt={cast.name}
             />
             <h3>{cast.name}</h3>

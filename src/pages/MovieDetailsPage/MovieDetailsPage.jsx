@@ -38,10 +38,14 @@ export default function MovieDetailsPage() {
         <h2 className={css.title}>Additional information</h2>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link className={css.link} to="cast">
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link className={css.link} to="reviews">
+              Reviews
+            </Link>
           </li>
         </ul>
       </div>
